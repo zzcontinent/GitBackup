@@ -6,7 +6,14 @@ def get_backup_path():
     if platform.system() == 'Windows':
         return r'E:\PyWorkspace\GitBackup\backup'
     else:
-        return r'/home/pi/GitBackup/backup'
+        return r'/home/pi/pyworkspace/GitBackup/backup'
+
+
+def get_dir_char():
+    if platform.system() == 'Windows':
+        return '\\'
+    else:
+        return '/'
 
 
 class GitInfo:

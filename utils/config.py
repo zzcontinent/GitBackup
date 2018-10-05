@@ -34,6 +34,7 @@ class GitInfo:
 class Config:
     repos = [
         GitInfo(repo_url='https://github.com/zzcontinent/CliffMemSQL'),
+        GitInfo(repo_url='https://github.com/zzcontinent/GitBackup'),
         GitInfo(repo_url='https://github.com/zzcontinent/linaro-ubuntu-axi-driver-test'),
         GitInfo(repo_url='https://github.com/zzcontinent/ipsniffer'),
         GitInfo(repo_url='https://github.com/zzcontinent/EthernetPortSpeedTest'),

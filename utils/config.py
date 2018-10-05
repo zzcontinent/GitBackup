@@ -17,18 +17,29 @@ def get_dir_char():
 
 
 class GitInfo:
-    def __init__(self, repo_url, repo_name=None, user_name=None, email=None):
+    def __init__(self, repo_url, repo_name=None, user_name=None, passwd=None, email=None):
         self.repo_url = repo_url
         self.repo_name = repo_name
         if not repo_name:
-            i = self.repo_url.rfind('/')
-            self.repo_name = self.repo_url[i + 1:]
+            i = repo_url.rfind('/')
+            self.repo_name = repo_url[i + 1:]
         self.user_name = user_name
+        self.passwd = passwd
+        if not user_name or not passwd:
+            i = repo_url.find('//') + 2
+            self.repo_url = repo_url[:i] + user_name + ':' + str(passwd) + '@' + repo_url[i:]
         self.email = email
 
 
 class Config:
-    repos = [GitInfo(repo_url='https://github.com/1046102779/oklog'),
-             GitInfo(repo_url='https://github.com/1046102779/grbac')]
+    repos = [
+        GitInfo(repo_url='https://github.com/zzcontinent/CliffMemSQL'),
+        GitInfo(repo_url='https://github.com/zzcontinent/linaro-ubuntu-axi-driver-test'),
+        GitInfo(repo_url='https://github.com/zzcontinent/ipsniffer'),
+        GitInfo(repo_url='https://github.com/zzcontinent/EthernetPortSpeedTest'),
+        GitInfo(repo_url='http://git.woda.ink/dw/metadata', user_name='cliff', passwd='zzz520020'),
+        GitInfo(repo_url='http://git.woda.ink/dw/ods_controller', user_name='cliff', passwd='zzz520020'),
+    ]
+
     backup_path = get_backup_path()
     timing_backup = 60 * 60 * 1

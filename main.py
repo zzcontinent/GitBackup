@@ -16,19 +16,19 @@ def auto_gen():
         if not os.path.exists(tmpdir):
             cmd = 'cd ' + Config.backup_path + str_and + 'git clone ' + v.repo_url
             debug_log(os.system(cmd))
-            debug_log('git clone end ' + '*' * 20)
+            debug_log(cmd + '*' * 20)
         else:
             cmd = 'cd ' + tmpdir + str_and + 'git pull'
             debug_log(os.system(cmd))
-            debug_log('git pull end ' + '*' * 20)
+            debug_log(cmd + '*' * 20)
     # tar backup directory
-    debug_log('tar start' + '*' * 20)
     cmd = 'cd ' + Config.backup_path + str_and + 'cd ..' + str_and + 'tar -czvf ' + 'backup' + cur_date + '.tar.gz' + ' backup'
+    debug_log(cmd + '*' * 20)
     debug_log(os.system(cmd))
 
 
 def main():
-    init_log(log_path='/var/log/GitBackup/gitbackup.log', log_level='INFO')
+    init_log(log_path='/var/log/GitBackup/GitBackup.log', log_level='NOTSET')
     while True:
         auto_gen()
         time.sleep(Config.timing_backup)

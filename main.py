@@ -19,8 +19,9 @@ def auto_gen():
             debug_log(cmd + '*' * 20)
         else:
             cmd = 'cd ' + tmpdir + str_and + 'git pull'
-            debug_log(os.system(cmd))
             debug_log(cmd + '*' * 20)
+            debug_log(os.system(cmd))
+
     # tar backup directory
     cmd = 'cd ' + Config.backup_path + str_and + 'cd ..' + str_and + 'tar -czvf ' + 'backup' + cur_date + '.tar.gz' + ' backup'
     debug_log(cmd + '*' * 20)

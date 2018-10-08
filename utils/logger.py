@@ -2,6 +2,8 @@
 import logging
 from logging import Formatter
 from logging.handlers import RotatingFileHandler
+import os
+import platform
 
 _app_log = logging.getLogger()
 
@@ -11,7 +13,15 @@ warning_log = _app_log.warning
 error_log = _app_log.error
 
 
-def init_log(log_path, log_level):
+def init_log(log_path, log_level='NOTSET'):
+    i = 0
+    if platform.system() == 'Windows':
+        i = str(log_path).rfind('\\')
+    else:
+        i = str(log_path).rfind(r'/')
+    if not os.path.exists(log_path[:i]):
+        os.makedirs(log_path[:i])
+
     file_handler = RotatingFileHandler(log_path,
                                        mode='w', maxBytes=1024 * 1024 * 100,
                                        backupCount=10,

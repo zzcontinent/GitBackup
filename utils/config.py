@@ -38,6 +38,7 @@ class Config:
         GitInfo(repo_url='https://github.com/zzcontinent/linaro-ubuntu-axi-driver-test'),
         GitInfo(repo_url='https://github.com/zzcontinent/ipsniffer'),
         GitInfo(repo_url='https://github.com/zzcontinent/EthernetPortSpeedTest'),
+        GitInfo(repo_url='https://github.com/zzcontinent/services'),
         GitInfo(repo_url='http://git.woda.ink/dw/metadata', user_name='cliff', passwd='xxx'),
         GitInfo(repo_url='http://git.woda.ink/dw/ods_controller', user_name='cliff', passwd='xxx'),
         GitInfo(repo_url='http://git.woda.ink/dw/dw-etl', user_name='cliff', passwd='xxx'),

@@ -29,7 +29,7 @@ def auto_gen():
 
 
 def main():
-    init_log(log_path='/var/log/GitBackup/GitBackup.log', log_level='NOTSET')
+    init_log(log_path='/var/log/GitBackup.log', log_level='NOTSET')
     while True:
         auto_gen()
         time.sleep(Config.timing_backup)

@@ -22,7 +22,7 @@ class GitInfo:
         self.repo_name = repo_name
         if not repo_name:
             i = repo_url.rfind('/')
-            self.repo_name = repo_url[i + 1:]
+            self.repo_name = repo_url[i + 1:].strip('.git')
         self.user_name = user_name
         self.passwd = passwd
         if user_name and passwd:

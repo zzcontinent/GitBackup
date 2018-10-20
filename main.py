@@ -15,8 +15,8 @@ def auto_gen():
         tmpdir = Config.backup_path + get_dir_char() + v.repo_name
         if not os.path.exists(tmpdir):
             cmd = 'cd ' + Config.backup_path + str_and + 'git clone ' + v.repo_url
-            debug_log(os.system(cmd))
             debug_log(cmd + '*' * 20)
+            debug_log(os.system(cmd))
         else:
             cmd = 'cd ' + tmpdir + str_and + 'git pull'
             debug_log(cmd + '*' * 20)
